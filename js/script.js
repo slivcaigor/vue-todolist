@@ -1,10 +1,3 @@
-/*
-curare l’interfaccia e renderla più carina e/o funzionale;
-gestire anche lo stato “done” del task;
-far succedere qualcosa al completamento del caricamento dell’applicazione;
-*/
-
-
 const { createApp } = Vue;
 
 createApp({
@@ -19,7 +12,7 @@ createApp({
         },
         {
           text: 'Fare la spesa',
-          done: true
+          done: false
         },
         {
           text: 'Fare il bucato',
