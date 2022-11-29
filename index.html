@@ -29,8 +29,9 @@
     <div class="tasks-container">
       <ul v-if="tasks.length > 0">
         <li class="task" v-for="(task, index) in tasks">
-          {{ task.text }}
+          <span v-bind:class="task.done ? 'completed' : ''"> {{ task.text }}</span>
           <i class="ri-close-line" @click="removeTask(index)"></i>
+          <input type="checkbox" name="" id="" @click="taskDone(task)">
         </li>
       </ul>
 

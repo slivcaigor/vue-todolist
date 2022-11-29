@@ -13,9 +13,18 @@ createApp({
       error: false,
       newTask: '',
       tasks: [
-        { text: 'Fare i compiti', done: false },
-        { text: 'Fare la spesa', done: true },
-        { text: 'Fare il bucato', done: false }
+        {
+          text: 'Fare i compiti',
+          done: false
+        },
+        {
+          text: 'Fare la spesa',
+          done: true
+        },
+        {
+          text: 'Fare il bucato',
+          done: false
+        }
       ]
     }
   },
@@ -24,7 +33,7 @@ createApp({
       if (this.newTask.length < 5 || this.newTask === '') {
         this.error = true;
       } else {
-        this.tasks.unshift({ text: this.newTask });
+        this.tasks.unshift({ text: this.newTask, done: false });
         this.error = false;
       }
       this.newTask = '';
@@ -32,5 +41,8 @@ createApp({
     removeTask(index) {
       this.tasks.splice(index, 1);
     },
+    taskDone(task) {
+      task.done = !task.done
+    }
   }
 }).mount('#app')
