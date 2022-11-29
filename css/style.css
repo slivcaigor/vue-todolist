@@ -7,3 +7,14 @@
 body {
   background-color: black;
 }
+
+.wrapper {
+  width: 60%;
+  margin: 0 auto;
+  background-color: antiquewhite;
+  height: 400px;
+}
+
+.completed {
+  text-decoration: line-through;
+}

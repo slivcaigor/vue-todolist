@@ -7,13 +7,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src='https://unpkg.com/vue@3/dist/vue.global.js' defer></script>
   <script src="./js/script.js" defer></script>
-  <title>Slider</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+  <title>ToDoList</title>
   <link rel="stylesheet" href="./css/style.css" />
 </head>
 
 <body>
-  <div id="app">
+  <div id="app" class="wrapper">
+    <div class="logo">
+      <img src="./img/logo.svg" alt="">
+    </div>
 
+    <div class="new-task">
+      <input type="text" placeholder="New Task" v-model="newTask" @keyup.enter="addTask">
+      <button @click="addTask">Add Task</button>
+      <div class="error" v-if="error">
+        <small style="color:red">You need to insert a task at least 5 characters long</small>
+      </div>
+    </div>
+
+    <div class="tasks-container">
+      <ul v-if="tasks.length > 0">
+        <li class="task" v-for="(task, index) in tasks">
+          {{ task.text }}
+          <i class="ri-close-line" @click="removeTask(index)"></i>
+        </li>
+      </ul>
+
+      <h2 v-else>Non ci sono task</h2>
+    </div>
   </div>
 </body>
 
